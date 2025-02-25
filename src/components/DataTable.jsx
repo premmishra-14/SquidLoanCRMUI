@@ -145,11 +145,11 @@ const DataTable = (props) => {
             onChange={(e) => setSearchQuery(e.target.value)}
             sx={{ mr: 2 }}
           />
-          <Button onClick={handleMenuClick} variant="contained" color="primary">Download</Button>
-          <Menu anchorEl={anchorEl} open={open} onClose={handleMenuClose}>
-            <MenuItem onClick={exportToCSV}>CSV</MenuItem>
-            <MenuItem onClick={exportToExcel}>Excel</MenuItem>
-            <MenuItem onClick={exportToPDF}>PDF</MenuItem>
+          <Button onClick={handleMenuClick} variant="contained" color="primary" sx={{px:5}}>Download</Button>
+          <Menu anchorEl={anchorEl} open={open} onClose={handleMenuClose} sx={{px:10,'& .MuiMenuItem-root': { width: 140 }}}>
+            <MenuItem onClick={exportToCSV}>CSV File</MenuItem>
+            <MenuItem onClick={exportToExcel}>Excel File</MenuItem>
+            <MenuItem onClick={exportToPDF}>PDF File</MenuItem>
             <MenuItem onClick={exportToJSON}>JSON</MenuItem>
           </Menu>
         </Toolbar>
@@ -170,6 +170,7 @@ const DataTable = (props) => {
                       active={orderBy === column}
                       direction={orderBy === column ? order : "asc"}
                       onClick={() => handleRequestSort(column)}
+                      sx={{ fontWeight: "bold" }}
                     >
                       {column.charAt(0).toUpperCase() + column.slice(1)}
                     </TableSortLabel>
@@ -189,10 +190,10 @@ const DataTable = (props) => {
                       />
                     </TableCell>
                     <TableCell align="left">{row.name}</TableCell>
-                    <TableCell align="left">{row.calories}</TableCell>
-                    <TableCell align="left">{row.fat}</TableCell>
-                    <TableCell align="left">{row.carbs}</TableCell>
-                    <TableCell align="left">{row.protein}</TableCell>
+                    <TableCell align="left">{row.loan_id}</TableCell>
+                    <TableCell align="left">{row.customer_id}</TableCell>
+                    <TableCell align="left">{row.laon_amount}</TableCell>
+                    <TableCell align="left">{row.loan_status}</TableCell>
                   </TableRow>
                 );
               })}

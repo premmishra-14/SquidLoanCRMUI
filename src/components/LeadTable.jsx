@@ -23,7 +23,7 @@ import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-const DataTable = (props) => {
+const LeadTable = (props) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -31,8 +31,8 @@ const DataTable = (props) => {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("name");
   const [selected, setSelected] = React.useState([]);
-  const rows = props.rows;
-  const column = props.columns;
+  const rows = props.rows || [];
+  const column = props.columns || [];
   const open = Boolean(anchorEl);
 
 
@@ -63,7 +63,7 @@ const DataTable = (props) => {
 
   // Filtering the rows based on search query
   const filteredRows = rows.filter((row) =>
-    row.name.toLowerCase().includes(searchQuery.toLowerCase())
+    row.full_name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   // Sorting the filtered rows
@@ -100,7 +100,7 @@ const DataTable = (props) => {
     const doc = new jsPDF(); // Create a new PDF document
     doc.autoTable({ 
       head: [column.map((col) => col.charAt(0).toUpperCase() + col.slice(1))],
-      body: rows.map((row) => [row.name, row.loan_id, row.customer_id, row.laon_amount, row.loan_status]),
+      body: rows.map((row) => [row.full_name, row.dob, row.gender, row.address, row.contact_no,row.email,row.marital_status]),
     });
     doc.save("data.pdf");
   };
@@ -176,11 +176,13 @@ const DataTable = (props) => {
                         onChange={() => handleClick(row.id)}
                       />
                     </TableCell>
-                    <TableCell align="left">{row.name}</TableCell>
-                    <TableCell align="left">{row.loan_id}</TableCell>
-                    <TableCell align="left">{row.customer_id}</TableCell>
-                    <TableCell align="left">{row.laon_amount}</TableCell>
-                    <TableCell align="left">{row.loan_status}</TableCell>
+                    <TableCell align="left">{row.full_name}</TableCell>
+                    <TableCell align="left">{row.dob}</TableCell>
+                    <TableCell align="left">{row.gender}</TableCell>
+                    <TableCell align="left">{row.address}</TableCell>
+                    <TableCell align="left">{row.contact_no}</TableCell>
+                    <TableCell align="left">{row.email}</TableCell>
+                    <TableCell align="left">{row.marital_status}</TableCell>
                   </TableRow>
                 );
               })}
@@ -201,4 +203,4 @@ const DataTable = (props) => {
   );
 };
 
-export default DataTable;
+export default LeadTable;

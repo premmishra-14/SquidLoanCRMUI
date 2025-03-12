@@ -98,34 +98,17 @@ export default function SignInPage() {
                     Credit & Sanction Team
                   </MenuItem>
                   <MenuItem value="disbursal">Disbursal Team</MenuItem>
-                  <MenuItem value="precollection">PreCollection Team</MenuItem>
+                  <MenuItem value="collection">Collection Team</MenuItem>
                   <MenuItem value="recovery">
                     Recovery Team (Online & Field) → State/City Head
                   </MenuItem>
                   <MenuItem value="marketing-google">
-                    Marketing → Google Leads
+                    Marketing Team → Google & Meta Leads
                   </MenuItem>
-                  <MenuItem value="marketing-meta">
-                    Marketing → Meta Leads
-                  </MenuItem>
+                  <MenuItem value="itteam">IT Team</MenuItem>
                   <MenuItem value="audit">Audit</MenuItem>
                 </Select>
               </FormControl>
-              {/* <FormControl fullWidth margin="normal" >
-                      <InputLabel id="gender-label">Gender</InputLabel>
-                      <Select
-                        labelId="gender-label"
-                        name="gender"
-                        value={role}
-                        label="Gender"
-                        onChange={(e) => setRole(e.target.value)}
-                      >
-                        <MenuItem value="male">Male</MenuItem>
-                        <MenuItem value="female">Female</MenuItem>
-                        <MenuItem value="other">Other</MenuItem>
-                        <MenuItem value="prefer-not-to-say">Prefer not to say</MenuItem>
-                      </Select>
-              </FormControl> */}
               <TextField
                 label="UserName"
                 name="username"

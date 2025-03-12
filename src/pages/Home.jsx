@@ -2,22 +2,20 @@ import * as React from "react";
 import { extendTheme} from "@mui/material/styles";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
-import BarChartIcon from "@mui/icons-material/BarChart";
 import DescriptionIcon from "@mui/icons-material/Description";
-import LayersIcon from "@mui/icons-material/Layers";
 import { AppProvider } from "@toolpad/core/AppProvider";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import { PageContainer } from "@toolpad/core/PageContainer";
 import DataTable from "../components/DataTable";
 import Dummy from "../components/UserDetailsPage";
-import DashboardTable from "../components/DashboardTable";
 import OfflinePinIcon from '@mui/icons-material/OfflinePin';
 import PaymentsIcon from '@mui/icons-material/Payments';
 import QueuePlayNextIcon from '@mui/icons-material/QueuePlayNext';
 import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
 import CompressIcon from '@mui/icons-material/Compress';
+import LeadDatas from "../components/LeadDatas";
+import LeadData from "../components/LeadData";
 
 const NAVIGATION = [
   {
@@ -120,17 +118,17 @@ const RenderPage = ({pathname}) =>{
         case "/dashboard":
             return  <Dummy/>
         case "/leads":
-            return <DashboardTable/>
+            return <LeadData/>
         case "/in-process":
-              return <DashboardTable/>
+              return <LeadDatas/>
         case "/sanctioned":
-          return <DashboardTable/>
+          return <LeadDatas/>
         case "/disbursed":
-          return <DashboardTable/>
+          return <LeadDatas/>
         case "/collections":
-          return <DashboardTable/>
+          return <LeadDatas/>
         case "/settled":
-          return <DashboardTable/>
+          return <LeadDatas/>
         case "/settled/sales":
             return <h1>Sales</h1>
         case "/settled/traffic":

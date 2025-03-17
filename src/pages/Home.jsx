@@ -16,6 +16,8 @@ import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
 import CompressIcon from '@mui/icons-material/Compress';
 import LeadDatas from "../components/LeadDatas";
 import LeadData from "../components/LeadData";
+import DefaultLeadTable from "../components/DefaultLeadTable";
+import DefaultLead from "../components/DefaultLead";
 
 const NAVIGATION = [
   {
@@ -134,7 +136,7 @@ const RenderPage = ({pathname}) =>{
         case "/settled/traffic":
             return <h1>Traffic</h1>
         case "/defaults":
-            return <h1>Defaults</h1>
+            return <DefaultLead/>
         default:
             return <DataTable/>
     }

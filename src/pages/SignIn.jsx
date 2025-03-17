@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function SignInPage() {
   const [darkMode, setDarkMode] = useState(false);
-  const [role, setRole] = useState("admin");
+  const [role, setRole] = useState("credit-analyst");
   const navigate = useNavigate();
   // Dynamically create the theme based on darkMode state
   const theme = useMemo(
@@ -31,7 +31,7 @@ export default function SignInPage() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = {
-      email: formData.get("email"),
+      email: formData.get("email"), // Convert email to lowercase
       password: formData.get("password"),
       role: formData.get("role"),
       persistent: formData.get("persistent") === "on",
@@ -93,20 +93,18 @@ export default function SignInPage() {
               <FormControl fullWidth margin="normal" required >
                 <FormLabel>Select Role</FormLabel>
                 <Select value={role} onChange={(e) => setRole(e.target.value)} name="role">
-                  <MenuItem value="admin">Admin</MenuItem>
-                  <MenuItem value="credit-sanction">
-                    Credit & Sanction Team
+                  <MenuItem value="credit-analyst">
+                    Credit Analylst
                   </MenuItem>
                   <MenuItem value="disbursal">Disbursal Team</MenuItem>
-                  <MenuItem value="collection">Collection Team</MenuItem>
                   <MenuItem value="recovery">
-                    Recovery Team (Online & Field) → State/City Head
+                    Collection & Recovery
                   </MenuItem>
-                  <MenuItem value="marketing-google">
-                    Marketing Team → Google & Meta Leads
+                  <MenuItem value="degital">
+                    Digital Marketing 
                   </MenuItem>
-                  <MenuItem value="itteam">IT Team</MenuItem>
-                  <MenuItem value="audit">Audit</MenuItem>
+                  <MenuItem value="itteam">Tech Team</MenuItem>
+                  <MenuItem value="audit">Audit & Complince</MenuItem>
                 </Select>
               </FormControl>
               <TextField
